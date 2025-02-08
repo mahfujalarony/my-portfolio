@@ -3,7 +3,8 @@
 🚀 **Personal Portfolio Website** built using **MERN Stack** (MongoDB, Express.js, React.js, Node.js).
 
 ## 🌐 Live Demo
-[https://my-portfolio-lyart-three-74.vercel.app/](#)
+[Click here to visit](https://my-portfolio-lyart-three-74.vercel.app/)
+
 
 ## 🛠️ Tech Stack
 - **Frontend:** React.js, HTML5, CSS3, TailwindCSS
