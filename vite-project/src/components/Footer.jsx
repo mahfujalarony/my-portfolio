@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import emailjs from "emailjs-com"; 
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/mahfujalarony" },
   { icon: <FaLinkedin />, path: "https://www.linkedin.com/in/mahfujalamrony/" },
-  { icon: <FaFacebook />, path: "https://web.facebook.com/profile.php?id=100070429084257" }, // Facebook
+  { icon: <FaFacebook />, path: "https://web.facebook.com/profile.php?id=100070429084257" },
   { icon: <SiLeetcode />, path: "https://leetcode.com/u/mahhfujalamrony/" },
 ];
 
@@ -29,29 +28,50 @@ const Socials = ({ containerStyles, iconStyles }) => {
 };
 
 const Contact = () => {
-  const sendEmail = (e) => {
-    e.preventDefault(); 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID", 
-        e.target, 
-        "YOUR_USER_ID" 
-      )
-      .then(
-        (result) => {
-          console.log("Email sent successfully!", result.text);
-          alert("Message sent successfully!");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3001/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        (error) => {
-          console.error("Failed to send email:", error.text);
-          alert("Failed to send message. Please try again.");
-        }
-      );
+        body: JSON.stringify(formData)
+      });
 
-   
-    e.target.reset();
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        alert('Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -59,7 +79,6 @@ const Contact = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">Contact Me</h1>
 
-       
         <div className="flex justify-center mb-8">
           <Socials
             containerStyles="flex space-x-6"
@@ -67,7 +86,6 @@ const Contact = () => {
           />
         </div>
 
-        
         <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
           <form onSubmit={sendEmail}>
             <div className="mb-6">
@@ -78,6 +96,8 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                 placeholder="Enter your name"
                 required
@@ -92,6 +112,8 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                 placeholder="Enter your email"
                 required
@@ -104,7 +126,9 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
-                name="message" 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows="5"
                 className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500"
                 placeholder="Write your message here..."
@@ -121,16 +145,25 @@ const Contact = () => {
           </form>
         </div>
 
-        
         <div className="mt-8 text-center">
           <a
-            href="mailto:mahfujalamrony07@gmail.com" 
+            href="mailto:mahfujalamrony07@gmail.com"
             className="inline-flex items-center bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
           >
             <FaEnvelope className="mr-2" />
             Send me an Email
           </a>
+          <p className="mt-2 text-gray-400">
+            Or manually email: 
+            <span
+              className="text-blue-400 cursor-pointer"
+              onClick={() => navigator.clipboard.writeText('mahfujalamrony07@gmail.com')}
+            >
+              mahfujalamrony07@gmail.com (Click to copy)
+            </span>
+          </p>
         </div>
+
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ronyImage from "/ronyblack-modified.png"; // Import the image
+import ronyImage from "/ronyblack-modified.png"; 
 
 const Photo = () => {
   return (
@@ -11,7 +11,7 @@ const Photo = () => {
           transition: { delay: 2, duration: 0.4, ease: "easeIn" },
         }}
       >
-        {/* Image Container */}
+    
         <motion.div
           initial={{ opacity: 0 }}
           animate={{
@@ -21,13 +21,12 @@ const Photo = () => {
           className="w-[297px] h-[298px] xl:w-[298px] xl:h-[298px] mix-blend-normal absolute xl:ml-[104px]"
         >
           <img
-            src={ronyImage} // Use the imported image
+            src={ronyImage} 
             alt="Profile Image"
             className="w-full h-full object-contain"
           />
         </motion.div>
 
-        {/* Animated SVG Circle */}
         <motion.svg
           className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
           fill="transparent"
