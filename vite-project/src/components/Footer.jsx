@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaFacebook, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
+
+
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/mahfujalarony" },
   { icon: <FaLinkedin />, path: "https://www.linkedin.com/in/mahfujalamrony/" },
