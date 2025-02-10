@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 function Home() {
-  const [visible, setVisible] = useState(false); // State to control image visibility
+  const [visible, setVisible] = useState(false); 
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setVisible(true); // Set visible to true after 1 second
+      setVisible(true); 
     }, 1000);
 
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    return () => clearTimeout(timer); 
   }, []);
 
   return (
@@ -16,7 +16,7 @@ function Home() {
       id='home' 
       className='min-h-screen flex flex-col md:flex-row md:gap-12 items-center justify-center p-4 mt-16 xl:px-20 md:px-10' 
     >
-      {/* Text Content */}
+     
       <div className='w-full md:w-2/3 text-center md:text-left order-2 md:order-1'>
         <h1 className='text-4xl md:text-5xl font-bold mb-4 text-white'>
           <span className="text-yellow-500 font-semibold">
@@ -43,7 +43,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Profile Image */}
+ 
       <div className='w-full md:w-1/3 flex justify-center mb-8 md:mb-0 order-1 md:order-2'>
         <div className="rounded-full w-48 h-48 md:w-64 md:h-64 shadow-xl border-4 border-blue-500 overflow-hidden">
           <img 

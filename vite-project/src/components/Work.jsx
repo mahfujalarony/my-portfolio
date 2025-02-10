@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"; // Importing icons from react-icons
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"; 
 
 const projects = [
   {
