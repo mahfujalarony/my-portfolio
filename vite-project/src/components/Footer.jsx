@@ -53,7 +53,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/messages', {
+      const response = await fetch('https://my-portfolio-wis3.vercel.app/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
