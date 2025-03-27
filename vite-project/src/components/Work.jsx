@@ -3,10 +3,10 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
-    title: "Chat Application",
-    description: "A real-time chat app using React, Node.js, Express, and Socket.IO with authentication.",
-    githubLink: "https://github.com/yourusername/chat-app",
-    liveLink: "https://yourusername-chat-app.vercel.app/", 
+    title: "Full Stack E-comarce Site",
+    description: "An advanced e-commerce platform built with React.js, Node.js, MongoDB Atlas, and Tailwind CSS. This platform supports both user and admin functionalities with real-time data handling.",
+    githubLink: "https://github.com/mahfujalarony/E-comarce",
+    liveLink: "https://e-comarce-wheat.vercel.app/", 
   },
   {
     title: "Responsive UI with Tailwind CSS",
