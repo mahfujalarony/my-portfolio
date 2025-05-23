@@ -20,6 +20,25 @@ const projects = [
     githubLink: "https://github.com/mahfujalarony/Postgre-Sql-CRUD",
     liveLink: "https://postgre-sql-crud.vercel.app/", 
   },
+    {
+    title: "Client Dashboard With Next.js",
+    description: "This is a client dashboard built with Next.js and Tailwind CSS. It becomes accessible after completing a three-step process.",
+    githubLink: "https://github.com/mahfujalarony/Client-Dashboard",
+    liveLink: "https://client-dashboard-self.vercel.app/", 
+  },
+
+    {
+    title: "Travel Website With React.js",
+    description: "This is a travel website built using React.js, TypeScript, Tailwind CSS, and Framer Motion. The website showcases various travel destinations and offers an interactive experience with animations and smooth transitions.",
+    githubLink: "https://github.com/mahfujalarony/Travel",
+    liveLink: "https://travels97.netlify.app/", 
+  },
+    {
+    title: "Restorent - Restaurant UI With Next.js",
+    description: "A modern, responsive restaurant website UI built with Next.js and Tailwind CSS. This is a frontend-only project focused on creating an elegant and user-friendly restaurant interface without any backend functionality.",
+    githubLink: "https://github.com/mahfujalarony/Restorent",
+    liveLink: "https://restorent-beryl.vercel.app/", 
+  },
 ];
 
 const Work = () => {
